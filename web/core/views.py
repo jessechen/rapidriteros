@@ -7,7 +7,9 @@ from .models import KV, Show
 
 
 def get_immediately_show_osc(request):
-    return JsonResponse({"immediately_show_osc": KV.get("immediately_show_osc")})
+    return JsonResponse(
+        {"immediately_show_osc": KV.get("immediately_show_osc"),
+         "debug_mode": KV.get("debug_mode")})
 
 
 def set_immediately_show_osc(request):
@@ -17,6 +19,16 @@ def set_immediately_show_osc(request):
 
 def unset_immediately_show_osc(request):
     KV.set("immediately_show_osc", False)
+    return HttpResponse("ok")
+
+
+def set_debug_mode(request):
+    KV.set("debug_mode", True)
+    return HttpResponse("ok")
+
+
+def unset_debug_mode(request):
+    KV.set("debug_mode", False)
     return HttpResponse("ok")
 
 

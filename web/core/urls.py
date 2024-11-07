@@ -8,6 +8,8 @@ from core.views import (
     index,
     set_immediately_show_osc,
     unset_immediately_show_osc,
+    set_debug_mode,
+    unset_debug_mode,
 )
 
 urlpatterns = [
@@ -29,5 +31,15 @@ urlpatterns = [
         "internalapi/unset_immediately_show_osc",
         unset_immediately_show_osc,
         name="unset_immediately_show_osc",
+    ),
+    path(
+        "internalapi/get_immediately_show_osc",
+        set_debug_mode,
+        name="set_debug_mode",
+    ),
+    path(
+        "internalapi/unset_immediately_show_osc",
+        unset_debug_mode,
+        name="unset_debug_mode",
     ),
 ]
